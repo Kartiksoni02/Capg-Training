@@ -1,0 +1,224 @@
+SQL> -- Ques 1
+SQL> SELECT MIN(sal)
+  2  FROM emp
+  3  WHERE sal > (
+  4      SELECT MIN(sal)
+  5      FROM emp
+  6  );
+
+  MIN(SAL)                                                                      
+----------                                                                      
+       950                                                                      
+
+SQL> -- Ques 2
+SQL> SELECT MAX(sal)
+  2  FROM emp
+  3  WHERE sal < (
+  4      SELECT MAX(sal)
+  5      FROM emp
+  6      WHERE sal < (
+  7          SELECT MAX(sal)
+  8          FROM emp
+  9          WHERE sal < (
+ 10              SELECT MAX(sal)
+ 11              FROM emp
+ 12              WHERE sal < (
+ 13                  SELECT MAX(sal)
+ 14                  FROM emp
+ 15              )
+ 16          )
+ 17      )
+ 18  );
+
+  MAX(SAL)                                                                      
+----------                                                                      
+      2450                                                                      
+
+SQL> -- Ques 3
+SQL> SELECT ename
+  2  FROM emp
+  3  WHERE sal = (
+  4      SELECT MAX(sal)
+  5      FROM emp
+  6      WHERE sal < (
+  7          SELECT MAX(sal)
+  8          FROM emp
+  9          WHERE sal < (
+ 10              SELECT MAX(sal)
+ 11              FROM emp
+ 12          )
+ 13      )
+ 14  );
+
+ENAME                                                                           
+----------                                                                      
+JONES                                                                           
+
+SQL> -- Ques 4
+SQL> SELECT empno
+  2  FROM emp
+  3  WHERE sal = (
+  4      SELECT MAX(sal)
+  5      FROM emp
+  6      WHERE sal < (
+  7          SELECT MAX(sal)
+  8          FROM emp
+  9      )
+ 10  );
+
+     EMPNO                                                                      
+----------                                                                      
+      7788                                                                      
+      7902                                                                      
+
+SQL> -- Ques 5
+SQL> SELECT dname
+  2  FROM dept
+  3  WHERE deptno = (
+  4      SELECT deptno
+  5      FROM emp
+  6      WHERE sal = (
+  7          SELECT MAX(sal)
+  8          FROM emp
+  9          WHERE sal < (
+ 10              SELECT MAX(sal)
+ 11              FROM emp
+ 12              WHERE sal < (
+ 13                  SELECT MAX(sal)
+ 14                  FROM emp
+ 15                  WHERE sal < (
+ 16                      SELECT MAX(sal)
+ 17                      FROM emp
+ 18                  )
+ 19              )
+ 20          )
+ 21      )
+ 22  );
+
+DNAME                                                                           
+--------------                                                                  
+SALES                                                                           
+
+SQL> -- Ques 6
+SQL> SELECT *
+  2  FROM emp
+  3  WHERE hiredate = (
+  4      SELECT MIN(hiredate)
+  5      FROM emp
+  6      WHERE hiredate > (
+  7          SELECT MIN(hiredate)
+  8          FROM emp
+  9      )
+ 10  );
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300      
+        30                                                                      
+                                                                                
+
+SQL> -- Ques 7
+SQL> SELECT ename
+  2  FROM emp
+  3  WHERE hiredate < (
+  4      SELECT MAX(hiredate)
+  5      FROM emp
+  6  );
+
+ENAME                                                                           
+----------                                                                      
+SMITH                                                                           
+ALLEN                                                                           
+WARD                                                                            
+JONES                                                                           
+MARTIN                                                                          
+BLAKE                                                                           
+CLARK                                                                           
+SCOTT                                                                           
+KING                                                                            
+TURNER                                                                          
+JAMES                                                                           
+
+ENAME                                                                           
+----------                                                                      
+FORD                                                                            
+MILLER                                                                          
+
+13 rows selected.
+
+SQL> -- Ques 8
+SQL> SELECT loc
+  2  FROM dept
+  3  WHERE deptno = (
+  4      SELECT deptno
+  5      FROM emp
+  6      WHERE hiredate = (
+  7          SELECT MIN(hiredate)
+  8          FROM emp
+  9      )
+ 10  );
+
+LOC                                                                             
+-------------                                                                   
+DALLAS                                                                          
+
+SQL> -- Ques 9
+SQL> SELECT *
+  2  FROM emp
+  3  WHERE sal = (
+  4      SELECT MIN(sal)
+  5      FROM emp
+  6      WHERE sal > (
+  7          SELECT MIN(sal)
+  8          FROM emp
+  9          WHERE sal > (
+ 10              SELECT MIN(sal)
+ 11              FROM emp
+ 12              WHERE sal > (
+ 13                  SELECT MIN(sal)
+ 14                  FROM emp
+ 15                  WHERE sal > (
+ 16                      SELECT MIN(sal)
+ 17                      FROM emp
+ 18                      WHERE sal > (
+ 19                          SELECT MIN(sal)
+ 20                          FROM emp
+ 21                      )
+ 22                  )
+ 23              )
+ 24          )
+ 25      )
+ 26  );
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0      
+        30                                                                      
+                                                                                
+
+SQL> -- Ques 10
+SQL> SELECT dname
+  2  FROM dept
+  3  WHERE deptno = (
+  4      SELECT deptno
+  5      FROM emp
+  6      WHERE sal = (
+  7          SELECT MAX(sal)
+  8          FROM emp
+  9          WHERE sal < (
+ 10              SELECT MAX(sal)
+ 11              FROM emp
+ 12          )
+ 13      )
+ 14  );
+    SELECT deptno
+    *
+ERROR at line 4:
+ORA-01427: single-row subquery returns more than one row 
+
+SQL> -- Assignment Completed.
+SQL> SPOOL OFF

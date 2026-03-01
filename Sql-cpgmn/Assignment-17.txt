@@ -1,0 +1,140 @@
+SQL> SELECT * FROM EMP;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20               
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30               
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30               
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20               
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30               
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30               
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10               
+      7788 SCOTT      ANALYST         7566 13-JUL-87       3000                    20               
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10               
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30               
+      7876 ADAMS      CLERK           7788 13-JUL-87       1100                    20               
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30               
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20               
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10               
+
+14 rows selected.
+
+SQL> SELECT * FROM DEPT;
+
+    DEPTNO DNAME          LOC                                                                       
+---------- -------------- -------------                                                             
+        10 ACCOUNTING     NEW YORK                                                                  
+        20 RESEARCH       DALLAS                                                                    
+        30 SALES          CHICAGO                                                                   
+        40 OPERATIONS     BOSTON                                                                    
+
+SQL> SELECT E.ENAME AS EMP,
+  2         M.ENAME AS MGR,
+  3         B.ENAME AS BOSS
+  4  FROM EMP E, EMP M, EMP B
+  5  WHERE E.MGR = M.EMPNO
+  6  AND M.MGR = B.EMPNO
+  7  AND E.JOB = 'CLERK';
+
+EMP        MGR        BOSS                                                                          
+---------- ---------- ----------                                                                    
+SMITH      FORD       JONES                                                                         
+ADAMS      SCOTT      JONES                                                                         
+MILLER     CLARK      KING                                                                          
+JAMES      BLAKE      KING                                                                          
+
+SQL> SELECT E.ENAME,
+  2         D1.DNAME,
+  3         M.JOB,
+  4         D2.LOC
+  5  FROM EMP E, DEPT D1, EMP M, DEPT D2
+  6  WHERE E.DEPTNO = D1.DEPTNO
+  7  AND E.MGR = M.EMPNO
+  8  AND M.DEPTNO = D2.DEPTNO
+  9  AND M.DEPTNO IN (10, 20);
+
+ENAME      DNAME          JOB       LOC                                                             
+---------- -------------- --------- -------------                                                   
+MILLER     ACCOUNTING     MANAGER   NEW YORK                                                        
+CLARK      ACCOUNTING     PRESIDENT NEW YORK                                                        
+FORD       RESEARCH       MANAGER   DALLAS                                                          
+ADAMS      RESEARCH       ANALYST   DALLAS                                                          
+SCOTT      RESEARCH       MANAGER   DALLAS                                                          
+JONES      RESEARCH       PRESIDENT NEW YORK                                                        
+SMITH      RESEARCH       ANALYST   DALLAS                                                          
+BLAKE      SALES          PRESIDENT NEW YORK                                                        
+
+8 rows selected.
+
+SQL> SELECT E.ENAME,
+  2         M.SAL,
+  3         B.HIREDATE
+  4  FROM EMP E, EMP M, EMP B
+  5  WHERE E.MGR = M.EMPNO
+  6  AND M.MGR = B.EMPNO
+  7  AND B.SAL > 2300;
+
+ENAME             SAL HIREDATE                                                                      
+---------- ---------- ---------                                                                     
+SMITH            3000 02-APR-81                                                                     
+ALLEN            2850 17-NOV-81                                                                     
+WARD             2850 17-NOV-81                                                                     
+MARTIN           2850 17-NOV-81                                                                     
+SCOTT            2975 17-NOV-81                                                                     
+TURNER           2850 17-NOV-81                                                                     
+ADAMS            3000 02-APR-81                                                                     
+JAMES            2850 17-NOV-81                                                                     
+FORD             2975 17-NOV-81                                                                     
+MILLER           2450 17-NOV-81                                                                     
+
+10 rows selected.
+
+SQL> SELECT E.ENAME,
+  2         M.HIREDATE
+  3  FROM EMP E, EMP M, EMP B
+  4  WHERE E.MGR = M.EMPNO
+  5  AND M.MGR = B.EMPNO
+  6  AND E.HIREDATE < DATE '1982-01-01'
+  7  AND (B.COMM IS NULL OR B.COMM = 0);
+
+ENAME      HIREDATE                                                                                 
+---------- ---------                                                                                
+SMITH      03-DEC-81                                                                                
+ALLEN      01-MAY-81                                                                                
+WARD       01-MAY-81                                                                                
+MARTIN     01-MAY-81                                                                                
+TURNER     01-MAY-81                                                                                
+JAMES      01-MAY-81                                                                                
+FORD       02-APR-81                                                                                
+
+7 rows selected.
+
+SQL> SELECT E.ENAME AS EMP,
+  2         D1.DNAME AS EMP_DEPT,
+  3         M.ENAME AS MGR,
+  4         D2.DNAME AS MGR_DEPT,
+  5         B.ENAME AS BOSS,
+  6         D3.DNAME AS BOSS_DEPT
+  7  FROM EMP E, DEPT D1, EMP M, DEPT D2, EMP B, DEPT D3
+  8  WHERE E.DEPTNO = D1.DEPTNO
+  9  AND E.MGR = M.EMPNO
+ 10  AND M.DEPTNO = D2.DEPTNO
+ 11  AND M.MGR = B.EMPNO
+ 12  AND B.DEPTNO = D3.DEPTNO
+ 13  AND B.SAL > M.SAL;
+
+EMP        EMP_DEPT       MGR        MGR_DEPT       BOSS       BOSS_DEPT                            
+---------- -------------- ---------- -------------- ---------- --------------                       
+MILLER     ACCOUNTING     CLARK      ACCOUNTING     KING       ACCOUNTING                           
+FORD       RESEARCH       JONES      RESEARCH       KING       ACCOUNTING                           
+SCOTT      RESEARCH       JONES      RESEARCH       KING       ACCOUNTING                           
+JAMES      SALES          BLAKE      SALES          KING       ACCOUNTING                           
+TURNER     SALES          BLAKE      SALES          KING       ACCOUNTING                           
+MARTIN     SALES          BLAKE      SALES          KING       ACCOUNTING                           
+WARD       SALES          BLAKE      SALES          KING       ACCOUNTING                           
+ALLEN      SALES          BLAKE      SALES          KING       ACCOUNTING                           
+
+8 rows selected.
+
+SQL> -- Assignment 17 completed.
+SQL> SPOOL OFF

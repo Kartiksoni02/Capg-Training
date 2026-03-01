@@ -1,0 +1,167 @@
+SQL> -- Ques 1
+SQL> SELECT e.ename, m.ename AS manager_name
+  2  FROM emp e
+  3  INNER JOIN emp m
+  4  ON e.mgr = m.empno
+  5  WHERE e.job = 'CLERK';
+
+ENAME      MANAGER_NA                                                           
+---------- ----------                                                           
+JAMES      BLAKE                                                                
+MILLER     CLARK                                                                
+ADAMS      SCOTT                                                                
+SMITH      FORD                                                                 
+
+SQL> -- Ques 2
+SQL> SELECT e.ename, m.job
+  2  FROM emp e
+  3  INNER JOIN emp m
+  4  ON e.mgr = m.empno
+  5  WHERE m.deptno IN (10, 20);
+
+ENAME      JOB                                                                  
+---------- ---------                                                            
+SMITH      ANALYST                                                              
+JONES      PRESIDENT                                                            
+BLAKE      PRESIDENT                                                            
+CLARK      PRESIDENT                                                            
+SCOTT      MANAGER                                                              
+ADAMS      ANALYST                                                              
+FORD       MANAGER                                                              
+MILLER     MANAGER                                                              
+
+8 rows selected.
+
+SQL> -- Ques 3
+SQL> SELECT e.ename, m.sal
+  2  FROM emp e
+  3  INNER JOIN emp m
+  4  ON e.mgr = m.empno
+  5  WHERE e.sal > 2300
+  6  AND m.sal > 2300;
+
+ENAME             SAL                                                           
+---------- ----------                                                           
+FORD             2975                                                           
+SCOTT            2975                                                           
+CLARK            5000                                                           
+BLAKE            5000                                                           
+JONES            5000                                                           
+
+SQL> -- Ques 4
+SQL> SELECT e.ename, m.hiredate
+  2  FROM emp e
+  3  INNER JOIN emp m
+  4  ON e.mgr = m.empno
+  5  WHERE e.hiredate < '01-JAN-1982';
+
+ENAME      HIREDATE                                                             
+---------- ---------                                                            
+FORD       02-APR-81                                                            
+JAMES      01-MAY-81                                                            
+TURNER     01-MAY-81                                                            
+MARTIN     01-MAY-81                                                            
+WARD       01-MAY-81                                                            
+ALLEN      01-MAY-81                                                            
+CLARK      17-NOV-81                                                            
+BLAKE      17-NOV-81                                                            
+JONES      17-NOV-81                                                            
+SMITH      03-DEC-81                                                            
+
+10 rows selected.
+
+SQL> -- Ques 5
+SQL> SELECT e.ename, m.comm
+  2  FROM emp e
+  3  INNER JOIN emp m
+  4  ON e.mgr = m.empno
+  5  WHERE e.job = 'SALESMAN'
+  6  AND m.deptno = 30;
+
+ENAME            COMM                                                           
+---------- ----------                                                           
+TURNER                                                                          
+MARTIN                                                                          
+WARD                                                                            
+ALLEN                                                                           
+
+SQL> -- Ques 6
+SQL> SELECT e.ename, m.ename AS manager_name, e.sal, m.sal
+  2  FROM emp e
+  3  INNER JOIN emp m
+  4  ON e.mgr = m.empno
+  5  WHERE e.sal > m.sal;
+
+ENAME      MANAGER_NA        SAL        SAL                                     
+---------- ---------- ---------- ----------                                     
+FORD       JONES            3000       2975                                     
+SCOTT      JONES            3000       2975                                     
+
+SQL> -- Ques 7
+SQL> SELECT e.ename, e.hiredate, m.ename AS manager_name, m.hiredate
+  2  FROM emp e
+  3  INNER JOIN emp m
+  4  ON e.mgr = m.empno
+  5  WHERE m.hiredate < e.hiredate;
+
+ENAME      HIREDATE  MANAGER_NA HIREDATE                                        
+---------- --------- ---------- ---------                                       
+FORD       03-DEC-81 JONES      02-APR-81                                       
+SCOTT      19-APR-87 JONES      02-APR-81                                       
+JAMES      03-DEC-81 BLAKE      01-MAY-81                                       
+TURNER     08-SEP-81 BLAKE      01-MAY-81                                       
+MARTIN     28-SEP-81 BLAKE      01-MAY-81                                       
+MILLER     23-JAN-82 CLARK      09-JUN-81                                       
+ADAMS      23-MAY-87 SCOTT      19-APR-87                                       
+
+7 rows selected.
+
+SQL> -- Ques 8
+SQL> SELECT e.ename, m.ename AS manager_name
+  2  FROM emp e
+  3  INNER JOIN emp m
+  4  ON e.mgr = m.empno
+  5  WHERE e.job = m.job;
+
+no rows selected
+
+SQL> -- Ques 9
+SQL> SELECT e.ename, m.ename AS manager_name
+  2  FROM emp e
+  3  INNER JOIN emp m
+  4  ON e.mgr = m.empno
+  5  WHERE m.job = 'MANAGER';
+
+ENAME      MANAGER_NA                                                           
+---------- ----------                                                           
+ALLEN      BLAKE                                                                
+WARD       BLAKE                                                                
+MARTIN     BLAKE                                                                
+SCOTT      JONES                                                                
+TURNER     BLAKE                                                                
+JAMES      BLAKE                                                                
+FORD       JONES                                                                
+MILLER     CLARK                                                                
+
+8 rows selected.
+
+SQL> -- Ques 10
+SQL> SELECT e.ename, m.ename AS manager_name,
+  2         e.sal * 12 AS emp_annual_sal,
+  3         m.sal * 12 AS mgr_annual_sal
+  4  FROM emp e
+  5  INNER JOIN emp m
+  6  ON e.mgr = m.empno
+  7  WHERE e.deptno IN (10, 20)
+  8  AND m.sal > e.sal;
+
+ENAME      MANAGER_NA EMP_ANNUAL_SAL MGR_ANNUAL_SAL                             
+---------- ---------- -------------- --------------                             
+MILLER     CLARK               15600          29400                             
+ADAMS      SCOTT               13200          36000                             
+CLARK      KING                29400          60000                             
+JONES      KING                35700          60000                             
+SMITH      FORD                 9600          36000                             
+
+SQL> -- Assignment Completed.
+SQL> SPOOL OFF

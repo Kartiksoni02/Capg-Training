@@ -1,0 +1,245 @@
+SQL> -- Ques 1
+SQL> SELECT ename
+  2  FROM emp
+  3  WHERE sal > ALL (
+  4      SELECT sal
+  5      FROM emp
+  6      WHERE job = 'SALESMAN'
+  7  );
+
+ENAME                                                                           
+----------                                                                      
+CLARK                                                                           
+BLAKE                                                                           
+JONES                                                                           
+SCOTT                                                                           
+FORD                                                                            
+KING                                                                            
+
+6 rows selected.
+
+SQL> -- Ques 2
+SQL> SELECT *
+  2  FROM emp
+  3  WHERE hiredate > ALL (
+  4      SELECT hiredate
+  5      FROM emp
+  6      WHERE job = 'CLERK'
+  7  );
+
+no rows selected
+
+SQL> -- Ques 3
+SQL> SELECT ename, sal
+  2  FROM emp
+  3  WHERE sal < ANY (
+  4      SELECT sal
+  5      FROM emp
+  6      WHERE job = 'MANAGER'
+  7  );
+
+ENAME             SAL                                                           
+---------- ----------                                                           
+SMITH             800                                                           
+JAMES             950                                                           
+ADAMS            1100                                                           
+WARD             1250                                                           
+MARTIN           1250                                                           
+MILLER           1300                                                           
+TURNER           1500                                                           
+ALLEN            1600                                                           
+CLARK            2450                                                           
+BLAKE            2850                                                           
+
+10 rows selected.
+
+SQL> -- Ques 4
+SQL> SELECT ename, hiredate
+  2  FROM emp
+  3  WHERE hiredate < ALL (
+  4      SELECT hiredate
+  5      FROM emp
+  6      WHERE job = 'MANAGER'
+  7  );
+
+ENAME      HIREDATE                                                             
+---------- ---------                                                            
+WARD       22-FEB-81                                                            
+ALLEN      20-FEB-81                                                            
+SMITH      17-DEC-80                                                            
+
+SQL> -- Ques 5
+SQL> SELECT ename
+  2  FROM emp
+  3  WHERE hiredate > ALL (
+  4          SELECT hiredate
+  5          FROM emp
+  6          WHERE job = 'MANAGER'
+  7        )
+  8  AND sal > ALL (
+  9          SELECT sal
+ 10          FROM emp
+ 11          WHERE job = 'CLERK'
+ 12        );
+
+ENAME                                                                           
+----------                                                                      
+TURNER                                                                          
+FORD                                                                            
+SCOTT                                                                           
+KING                                                                            
+
+SQL> -- Ques 6
+SQL> SELECT *
+  2  FROM emp
+  3  WHERE job = 'CLERK'
+  4  AND hiredate < ANY (
+  5      SELECT hiredate
+  6      FROM emp
+  7      WHERE job = 'SALESMAN'
+  8  );
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7369 SMITH      CLERK           7902 17-DEC-80        800                 
+        20                                                                      
+                                                                                
+
+SQL> -- Ques 7
+SQL> SELECT *
+  2  FROM emp
+  3  WHERE deptno IN (
+  4      SELECT deptno
+  5      FROM dept
+  6      WHERE dname IN ('ACCOUNTING', 'SALES')
+  7  );
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300      
+        30                                                                      
+                                                                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500      
+        30                                                                      
+                                                                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400      
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                 
+        30                                                                      
+                                                                                
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                 
+        10                                                                      
+                                                                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                 
+        10                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0      
+        30                                                                      
+                                                                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                 
+        30                                                                      
+                                                                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                 
+        10                                                                      
+                                                                                
+
+9 rows selected.
+
+SQL> -- Ques 8
+SQL> SELECT DISTINCT dname
+  2  FROM dept
+  3  WHERE deptno IN (
+  4      SELECT deptno
+  5      FROM emp
+  6      WHERE ename IN ('SMITH', 'KING', 'MILLER')
+  7  );
+
+DNAME                                                                           
+--------------                                                                  
+ACCOUNTING                                                                      
+RESEARCH                                                                        
+
+SQL> -- Ques 9
+SQL> SELECT *
+  2  FROM emp
+  3  WHERE deptno IN (
+  4      SELECT deptno
+  5      FROM dept
+  6      WHERE loc IN ('NEW YORK', 'CHICAGO')
+  7  );
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300      
+        30                                                                      
+                                                                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500      
+        30                                                                      
+                                                                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400      
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                 
+        30                                                                      
+                                                                                
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                 
+        10                                                                      
+                                                                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                 
+        10                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0      
+        30                                                                      
+                                                                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                 
+        30                                                                      
+                                                                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                 
+        10                                                                      
+                                                                                
+
+9 rows selected.
+
+SQL> --Ques 10
+SQL> SELECT ename
+  2  FROM emp
+  3  WHERE hiredate > ALL (
+  4      SELECT hiredate
+  5      FROM emp
+  6      WHERE deptno = 10
+  7  );
+
+ENAME                                                                           
+----------                                                                      
+SCOTT                                                                           
+ADAMS                                                                           
+
+SQL> -- Assignment Completed.
+SQL> SPOOL OFF

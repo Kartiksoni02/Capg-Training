@@ -1,0 +1,161 @@
+SQL> -- Ques 1
+SQL> SELECT ename
+  2  FROM emp
+  3  WHERE empno = (
+  4      SELECT mgr
+  5      FROM emp
+  6      WHERE ename = 'SMITH'
+  7  );
+
+ENAME                                                                           
+----------                                                                      
+FORD                                                                            
+
+SQL> -- Ques 2
+SQL> SELECT ename
+  2  FROM emp
+  3  WHERE empno = (
+  4      SELECT mgr
+  5      FROM emp
+  6      WHERE empno = (
+  7          SELECT mgr
+  8          FROM emp
+  9          WHERE ename = 'ADAMS'
+ 10      )
+ 11  );
+
+ENAME                                                                           
+----------                                                                      
+JONES                                                                           
+
+SQL> -- Ques 3
+SQL> SELECT dname
+  2  FROM dept
+  3  WHERE deptno = (
+  4      SELECT deptno
+  5      FROM emp
+  6      WHERE empno = (
+  7          SELECT mgr
+  8          FROM emp
+  9          WHERE ename = 'JONES'
+ 10      )
+ 11  );
+
+DNAME                                                                           
+--------------                                                                  
+ACCOUNTING                                                                      
+
+SQL> -- Ques 4
+SQL> SELECT sal
+  2  FROM emp
+  3  WHERE empno = (
+  4      SELECT mgr
+  5      FROM emp
+  6      WHERE ename = 'MILLER'
+  7  );
+
+       SAL                                                                      
+----------                                                                      
+      2450                                                                      
+
+SQL> -- Ques 5
+SQL> SELECT loc
+  2  FROM dept
+  3  WHERE deptno = (
+  4      SELECT deptno
+  5      FROM emp
+  6      WHERE empno = (
+  7          SELECT mgr
+  8          FROM emp
+  9          WHERE empno = (
+ 10              SELECT mgr
+ 11              FROM emp
+ 12              WHERE ename = 'SMITH'
+ 13          )
+ 14      )
+ 15  );
+
+LOC                                                                             
+-------------                                                                   
+DALLAS                                                                          
+
+SQL> -- Ques 6
+SQL> SELECT ename
+  2  FROM emp
+  3  WHERE mgr = (
+  4      SELECT empno
+  5      FROM emp
+  6      WHERE ename = 'BLAKE'
+  7  );
+
+ENAME                                                                           
+----------                                                                      
+ALLEN                                                                           
+WARD                                                                            
+MARTIN                                                                          
+TURNER                                                                          
+JAMES                                                                           
+
+SQL> -- Ques 7
+SQL> SELECT COUNT(*)
+  2  FROM emp
+  3  WHERE mgr = (
+  4      SELECT empno
+  5      FROM emp
+  6      WHERE ename = 'KING'
+  7  );
+
+  COUNT(*)                                                                      
+----------                                                                      
+         3                                                                      
+
+SQL> -- Ques 8
+SQL> SELECT *
+  2  FROM emp
+  3  WHERE mgr = (
+  4      SELECT empno
+  5      FROM emp
+  6      WHERE ename = 'JONES'
+  7  );
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                 
+        20                                                                      
+                                                                                
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                 
+        20                                                                      
+                                                                                
+
+SQL> -- Ques 9
+SQL> SELECT ename
+  2  FROM emp
+  3  WHERE mgr = (
+  4      SELECT mgr
+  5      FROM emp
+  6      WHERE ename = 'BLAKE'
+  7  );
+
+ENAME                                                                           
+----------                                                                      
+JONES                                                                           
+BLAKE                                                                           
+CLARK                                                                           
+
+SQL> -- Ques 10
+SQL> SELECT COUNT(*)
+  2  FROM emp
+  3  WHERE mgr = (
+  4      SELECT mgr
+  5      FROM emp
+  6      WHERE ename = 'FORD'
+  7  );
+
+  COUNT(*)                                                                      
+----------                                                                      
+         2                                                                      
+
+SQL> -- Assignment Completed.
+SQL> SPOOL OFF
