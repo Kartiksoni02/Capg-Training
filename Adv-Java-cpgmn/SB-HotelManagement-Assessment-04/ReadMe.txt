@@ -23,10 +23,8 @@ The application follows a **3-layer architecture**:
 * REST APIs
 * Tomcat (Embedded)
 
-Now, before postman :
-Create the following tables in **Oracle Database**.
 
-conn capgdb/capgdb
+Create the following tables in **Oracle Database**.
 
 ## Room Table
 
