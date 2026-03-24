@@ -1,0 +1,25 @@
+package com.capg.springboot.service;
+
+import com.capg.springboot.entity.Delivery;
+import com.capg.springboot.repository.DeliveryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.UUID;
+
+@Service
+public class DeliveryService {
+
+    @Autowired
+    private DeliveryRepository repo;
+
+    public Delivery createDelivery(Delivery delivery) {
+        delivery.setTrackingNumber("TRK" + System.currentTimeMillis());
+        delivery.setStatus("CREATED");
+        return repo.save(delivery);
+    }
+
+    public List<Delivery> getAll() {
+        return repo.findAll();
+    }
+}

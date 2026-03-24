@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  eureka-server:
+    build: ./eureka-service
+    ports:
+      - "8761:8761"
+    depends_on:
+      - mysql
+
+  api-gateway:
+    build: ./apigateway-service
+    ports:
+      - "8090:8090"
+    depends_on:
+      - eureka-server
+
+  auth-service:
+    build: ./auth-service
+    depends_on:
+      - eureka-server
+      - mysql
+
+  delivery-service:
+    build: ./delivery-service
+    depends_on:
+      - eureka-server
+      - mysql
+
+  tracking-service:
+    build: ./tracking-service
+    depends_on:
+      - eureka-server
+      - mysql
+
+  admin-service:
+    build: ./admin-service
+    depends_on:
+      - eureka-server
+
+volumes:
+  mysql_data:

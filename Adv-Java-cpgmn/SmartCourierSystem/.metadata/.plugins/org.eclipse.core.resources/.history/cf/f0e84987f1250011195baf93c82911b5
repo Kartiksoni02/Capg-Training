@@ -1,0 +1,14 @@
+Create delivery
+POST http://localhost:8080/api/deliveries
+
+Headers:
+
+Authorization: Bearer <token>
+
+Body:
+
+{
+  "userId": 1,
+  "serviceType": "EXPRESS",
+  "totalAmount": 200
+}

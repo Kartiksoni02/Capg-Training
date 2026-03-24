@@ -1,0 +1,21 @@
+package com.capg.springboot.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Delivery {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String trackingNumber;
+    private Long userId;
+    private String serviceType;
+    private String status;
+    private Double totalAmount;
+}

@@ -1,0 +1,59 @@
+package com.capg.springboot.security;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.gateway.filter.GlobalFilter;
+import org.springframework.cloud.gateway.filter.GatewayFilterChain;
+import org.springframework.core.Ordered; // 🔥 IMPORTANT
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Component;
+import org.springframework.web.server.ServerWebExchange;
+import reactor.core.publisher.Mono;
+
+@Component
+public class JwtFilter implements GlobalFilter, Ordered {
+
+    @Autowired
+    private JwtUtil jwtUtil;
+
+    @Override
+    public int getOrder() {
+        return -1; // 🔥 ensures it runs FIRST
+    }
+
+    @Override
+    public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+
+        String path = exchange.getRequest().getURI().getPath();
+
+        System.out.println("Path: " + path);
+
+        // ✅ Allow auth APIs
+        if (path.contains("/api/auth")) {
+            return chain.filter(exchange);
+        }
+
+        String authHeader = exchange.getRequest().getHeaders().getFirst("Authorization");
+
+        System.out.println("Auth Header: " + authHeader);
+
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            System.out.println("❌ Missing header");
+            exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
+            return exchange.getResponse().setComplete();
+        }
+
+        String token = authHeader.substring(7);
+
+        System.out.println("Token: " + token);
+
+        if (!jwtUtil.validateToken(token)) {
+            System.out.println("❌ Invalid token");
+            exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
+            return exchange.getResponse().setComplete();
+        }
+
+        System.out.println(" Token valid → forwarding request");
+
+        return chain.filter(exchange);
+    }
+}

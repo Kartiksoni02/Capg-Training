@@ -1,0 +1,31 @@
+package com.capg.springboot.service;
+
+import com.capg.springboot.entity.User;
+import com.capg.springboot.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;//used for automatically injecting required dependencies into a class
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//BCryptPasswordEncoder is a class from spring security used for hashing passwords, verifying passwords securely
+import org.springframework.stereotype.Service;
+
+@Service
+public class AuthService {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+    public User register(User user) {
+        user.setPassword(encoder.encode(user.getPassword())); // encrypt's the password while sending into the database
+        return userRepository.save(user);
+    }
+
+    public User login(String username, String password) {
+        User user = userRepository.findByUsername(username).orElse(null);
+
+        if (user != null && encoder.matches(password, user.getPassword())) {
+            return user;
+        }
+        return null;
+    }
+}

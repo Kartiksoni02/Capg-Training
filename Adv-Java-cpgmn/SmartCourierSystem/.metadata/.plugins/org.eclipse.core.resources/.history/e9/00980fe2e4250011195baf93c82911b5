@@ -1,0 +1,28 @@
+package com.capg.springboot.controller;
+
+import com.capg.springboot.dto.LoginRequest;
+import com.capg.springboot.entity.User;
+import com.capg.springboot.security.JwtUtil;
+import com.capg.springboot.service.AuthService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
+@RestController
+@RequestMapping("/api/auth")
+public class AuthController {
+
+    @Autowired
+    private AuthService service;
+
+    @PostMapping("/register")
+    public String register(@RequestBody User user) {
+        return service.register(user);
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestBody User user) {
+        return service.login(user);
+    }
+}

@@ -1,0 +1,24 @@
+package com.capg.springboot.controller;
+
+import com.capg.springboot.entity.Delivery;
+import com.capg.springboot.service.DeliveryService;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/deliveries")
+public class DeliveryController {
+
+    @Autowired
+    private DeliveryService service;
+
+    @PostMapping
+    public Delivery create(@RequestBody Delivery delivery) {
+        return service.createDelivery(delivery);
+    }
+
+    
+}
