@@ -1,0 +1,175 @@
+HTML : used to create and structure web pages.
+HyperText : Text with links
+Markup : Tags used to structure content
+
+> Invented by Tim Berners-Lee in 1990.
+
+# Search Engine Optimization :
+SEO is the process of improving a website to rank higher on search engines and get more traffic.
+
+> A Single Page Application (SPA) loads only one HTML page and dynamically updates content without reloading the page.
+SEO is difficult in this. 
+At first , it is slow , but after reloading it is faster.
+First SPA in 2009.
+Example: Gmail, Facebook
+
+How it works:
+First request → full page loads
+After that → only data (JSON/API) loads
+Page does NOT refresh
+
+> A Multiple Page Application (MPA) loads a new HTML page for every request. Easier SEO
+Example: Amazon, Flipkart
+
+How it works:
+Each click → sends request to server
+Server returns a new HTML page
+Whole page reloads
+_______________________________________________________________________________
+Tags : special keywords written inside < > used to tell the browser what to do.
+
+1. Paired / Container Tags : Have opening + closing tag
+2. Empty / Self-closing Tags : No closing tag like hr , br
+
+> Semantic Tags : tags that clearly describe the meaning and purpose of the content they contain.
+
+H : header
+D : details
+A : aside
+M : main, mark
+N : nav
+S : summary, section
+T : time, table
+A : article
+F : footer
+F : figure, figcaption
+
+<header>	Top section
+<footer>	Bottom section
+<nav>	    Navigation
+<section>	Section
+<article>	Independent content
+<aside>	    Sidebar
+<main>	    Main content
+___________________________________________
+<p>	        Paragraph
+<b>	        Bold
+<strong>	Important (bold)
+<i>	        Italic
+<em>	    Emphasized
+<u>	        Underline
+<mark>	    Highlight
+
+<a>	        Hyperlink
+<img>   	Image
+<audio> 	Audio
+<video> 	Video
+<source>	Media source
+
+<ul>	    Unordered list
+<ol>	    Ordered list
+<li>	    List item
+<dl>    	Description list
+
+<table>	    Table
+<tr>	    Row
+<th>	    Header cell
+<td>	    Data cell
+<caption>	Table title
+<thead>	    Table head
+<tbody>	    Table body
+<tfoot> 	Table footer
+
+<form>	    Form
+<input>	    Input field
+<textarea>	Multi-line input
+<button>	Button
+<select>	Dropdown
+<option>	Dropdown option
+<optgroup>  option groups
+<label>	    Label
+<fieldset>	Group form
+<legend>	Form title
+
+<div>	    Block container
+<br>	    Line break
+<hr>	    Horizontal line
+<iframe>    Embed page
+____________________________________________________
+Attributes : give extra information about a tag.
+
+1. Global Attributes : Can be used with any tag
+id      Unique identifier
+class   to Group elements
+style   Inline CSS
+title   Tooltip text , when we move cursor on title
+
+2. Specific Attributes : Used with specific tags
+href → <a>
+src → <img>
+alt → <img>
+
+3. Boolean Attributes : No value needed (true/false)
+disabled
+checked
+readonly
+
+4. Form Attributes :
+action	    Where data is sent
+method	    How data is sent (GET / POST)
+target	    Where to open result
+
+5. <input> :
+Attribute	    Work
+type	        Input type
+name	        Key name
+value	        Default value
+placeholder	    Hint text
+required	    Must fill
+readonly	    Read only
+disabled	    Disable
+maxlength	    Max length
+min, max	    Range
+
+6. <option> : 
+Attribute   	Work
+value	        Option value
+selected	    Default select
+disabled	    Disable option
+
+7. LINK & MEDIA ATTRIBUTES :
+🔹 <a>
+Attribute	Work
+href	    URL
+target  	_blank, etc
+download	Download file
+
+🔹 <img>
+Attribute	Work
+src	        Image path
+alt	        Alternative text if image not load
+width	    Width
+height	    Height
+
+🔹 <audio> / <video>
+Attribute	Work
+controls	Show controls
+autoplay	Auto play
+loop	    Repeat
+muted	    Mute
+
+8. TABLE ATTRIBUTES :
+Attribute	    Work
+border	        Border
+colspan 	    Merge columns
+rowspan	        Merge rows
+align	        Alignment
+cellpadding	    Space inside
+cellspacing	    Space outside
+
+label tag in form 
+label attribute in optgroup
+______________________________________________________________
+> An element = Complete structure (tag + content + attributes)
+
+This whole thing is an element : <p class="text">Hello</p>

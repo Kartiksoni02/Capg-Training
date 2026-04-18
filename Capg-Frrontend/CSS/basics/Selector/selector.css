@@ -1,0 +1,45 @@
+/* Universal Selector (*) → applies to all elements (used for reset) */
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+/* ID Selector (#head) → targets element with id="head" */
+#head{
+    background-color: seagreen;
+    color: white;
+    height:100px;
+    width:auto;
+}
+
+/* Class Selector (.group) → targets elements with class="group" */
+.group{
+    background-color: lightblue;
+    color: black;
+}
+
+/* Element / Tag Selector (summary) → targets all <summary> elements */
+summary{
+    background-color: lightgray;
+    color: black;
+}
+
+/* Grouping Selector (#head, .group, summary)
+   → applies same styles to multiple selectors */
+#head, .group, summary{
+    font-size: 25px;
+    font-weight: bold;
+    padding: 20px;
+    margin: 10px;
+}
+
+/* Example of universal reset
+   (same as first universal selector) */
+/*
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+*/

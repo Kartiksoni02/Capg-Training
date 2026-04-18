@@ -1,0 +1,64 @@
+<!-- Create an input field and based on the value , background color should change -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Input Color Change</title>
+    <style>
+        input {
+            padding: 10px;
+        }
+        .container{
+            width: 500px;
+            height: 300px;
+            /* border: 1px solid; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+
+<!-- 1st method -->
+<!-- <input type="text" id="colorInput" onkeyup="changeColor()"> -->
+
+<!-- <script>
+    function changeColor() {
+        let value = document.getElementById("colorInput").value;
+        let input = document.getElementById("colorInput");
+
+        if (value === "red") {
+            document.body.style.backgroundColor = "red";
+        } else if (value === "green") {
+            document.body.style.backgroundColor = "green";
+        } else if (value === "blue") {
+            document.body.style.backgroundColor = "blue";
+        } else {
+            input.style.backgroundColor = value;
+        }
+    } 
+</script> -->
+
+
+ <div class="container">
+        <input type="text" name="color" id="color" placeholder="Enter a color to set the bg...">
+    </div>
+
+    <script>
+        let colorInput = document.getElementById("color");
+
+        colorInput.addEventListener("input" , () => {
+            let color = colorInput.value;
+            document.body.style.backgroundColor = color;
+        })
+        
+    </script>
+
+
+
+</body>
+</html>
+

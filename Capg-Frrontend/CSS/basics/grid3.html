@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grid Layout</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f4f4f4;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 20px auto;
+}
+
+/* MAIN GRID */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+
+    /* 🔥 KEY FIX: control height manually */
+    grid-template-rows: 120px 240px 240px;
+
+    gap: 15px;
+}
+
+/* COMMON BOX STYLE */
+.box {
+    background: #7fc8d6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* LEFT BIG */
+.box1 {
+    grid-row: 1 / 4;
+}
+
+/* TOP */
+.box2 {
+    grid-column: 2 / 3;
+}
+
+.box3 {
+    grid-column: 3 / 4;
+}
+
+/* RIGHT BIG */
+.box6 {
+    grid-column: 3 / 4;
+    grid-row: 2 / 4;
+}
+
+/* 🔥 MIDDLE GRID */
+.middle {
+    grid-column: 2 / 3;
+    grid-row: 2 / 4;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    /* 🔥 important */
+    grid-template-rows: 1fr 1fr;
+
+    gap: 15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="grid">
+        <div class="box box1">1</div>
+        <div class="box box2">2</div>
+        <div class="box box3">3</div>
+
+        <div class="middle">
+            <div class="box">4</div>
+            <div class="box">5</div>
+            <div class="box">7</div>
+            <div class="box">8</div>
+        </div>
+
+        <div class="box box6">6</div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+For using font family :-
+
+go to fonts.google.com
+select font and get code form embedded code, 
+now we have 3 options for font family:
+
+1. use:
+cdn online link in head of html, like :
+<link
+<link
+<link
+
+and use any of the 4 in css file:
+
+.bj-cree-regular {
+  font-family: "BJ Cree", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.bj-cree-medium {
+  font-family: "BJ Cree", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.bj-cree-semibold {
+  font-family: "BJ Cree", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.bj-cree-bold {
+  font-family: "BJ Cree", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+2.  use :
+@import url('https://fonts.googleapis.com/...')
+this type import in top of css
+
+and use any of the 4 in css file:
+.bj-cree-regular {
+  font-family: "BJ Cree", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.bj-cree-medium {
+  font-family: "BJ Cree", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.bj-cree-semibold {
+  font-family: "BJ Cree", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.bj-cree-bold {
+  font-family: "BJ Cree", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+3. download font family

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CSS Selectors & Text Properties Demo</title>
+
+<style>
+
+/* =========================
+   1. SIMPLE SELECTORS
+========================= */
+
+/* Universal */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+}
+
+/* Element */
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+/* ID */
+#unique {
+  color: red;
+}
+
+/* Class */
+.box {
+  color: blue;
+}
+
+/* Grouping */
+h2, p {
+  margin: 10px;
+}
+
+/* =========================
+   2. COMBINATOR SELECTORS
+========================= */
+
+/* Descendant */
+div p {
+  color: green;
+}
+
+/* Child */
+div > span {
+  color: purple;
+}
+
+/* Adjacent sibling */
+h3 + p {
+  background-color: lightyellow;
+}
+
+/* General sibling */
+h3 ~ p {
+  border: 1px solid gray;
+}
+
+/* =========================
+   3. PSEUDO CLASSES
+========================= */
+
+/* Dynamic */
+a:link {
+  color: blue;
+}
+
+a:hover {
+  color: red;
+}
+
+a:active {
+  color: green;
+}
+
+input:focus {
+  border: 2px solid black;
+}
+
+/* Structural */
+ul li:first-child {
+  color: red;
+}
+
+ul li:last-child {
+  color: blue;
+}
+
+ul li:nth-child(2) {
+  color: green;
+}
+
+/* =========================
+   4. PSEUDO ELEMENTS
+========================= */
+
+/* Before */
+p::before {
+  content: "👉 ";
+}
+
+/* After */
+p::after {
+  content: " ✔";
+}
+
+/* First letter */
+p::first-letter {
+  font-size: 30px;
+  color: red;
+}
+
+/* First line */
+p::first-line {
+  font-weight: bold;
+}
+
+/* Marker */
+li::marker {
+  color: orange;
+}
+
+/* Selection */
+::selection {
+  background: yellow;
+  color: black;
+}
+
+/* =========================
+   5. ATTRIBUTE SELECTOR
+========================= */
+
+input[type="text"] {
+  background-color: lightgray;
+}
+
+/* =========================
+   TEXT PROPERTIES
+========================= */
+
+.text-demo {
+  color: brown;              /* text color */
+  text-align: center;          /* alignment */
+  text-transform: capitalize;  /* uppercase/lowercase/capitalize */
+  text-indent: 50px;           /* first line indent */
+  letter-spacing: 2px;         /* space between letters */
+  word-spacing: 1px;           /* space between words */
+  line-height: 1.8;            /* space between lines */
+  text-decoration: underline;  /* underline, overline, line-through */
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>CSS Complete Demo</h1>
+
+<!-- SIMPLE SELECTORS -->
+<h2>Simple Selectors</h2>
+<p id="unique">This is ID selector</p>
+<p class="box">This is Class selector</p>
+
+<!-- COMBINATORS -->
+<h2>Combinator Selectors</h2>
+<div>
+  <p>Descendant selector example</p>
+  <span>Child selector example</span>
+</div>
+
+<h3>Heading</h3>
+<p>Adjacent sibling</p>
+<p>General sibling 1</p>
+<p>General sibling 2</p>
+
+<!-- PSEUDO CLASSES -->
+<h2>Pseudo Classes</h2>
+<a href="#">Hover me</a><br><br>
+<input type="text" placeholder="Focus me">
+
+<ul>
+  <li>First item</li>
+  <li>Second item</li>
+  <li>Last item</li>
+</ul>
+
+<!-- TEXT PROPERTIES -->
+<h2>Text Properties</h2>
+<p class="text-demo">
+  this paragraph demonstrates all text properties like spacing alignment and transformation
+</p>
+
+</body>
+</html>

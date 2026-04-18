@@ -1,0 +1,54 @@
+=> SELECTORS IN CSS :--
+Selectors are used to target HTML elements so that we can apply styles to them.
+
+1. SIMPLE SELECTOR :-
+i) ID (#) → selects one unique element
+ii) Class (.) → selects multiple elements
+iii) Element → selects all same tags
+iv) Grouping (,) → apply same style to many
+v) Universal (*) → selects all elements
+
+2. COMBINATOR SELECTOR :-
+i) Descendant (div p) → inside element
+ii) Child (div > p) → direct child only
+iii) Adjacent (h1 + p) → next element
+iv) General sibling (h1 ~ p) → all siblings
+
+3. PSEUDO CLASS SELECTOR (:)
+Work on state or position of an element.
+
+i) DYNAMIC : Change style when user interacts
+:hover → mouse over
+:active → when clicked
+:link → normal (unvisited) link
+:focus → When input field is selected
+
+ii) STRUCTURAL : Based on element position in HTML
+:first-child → Selects first element
+:last-child → Selects last element
+:nth-child(n) → Select specific position
+
+4. PSEUDO ELEMENT SELECTOR (::)
+Work on parts of element
+::before → Adds content before element
+::after → Adds content after element
+::marker → Styles list bullets
+::selection → Styles selected text
+::first-line → Styles first line
+::first-word
+::first-letter → Styles first letter
+
+5. ATTRIBUTE SELECTOR →
+Select using attribute
+Example: input[type="text"]
+
+
+2. TEXT PROPERTIES :
+i) color → text color
+ii) text-align → left / center / right
+iii) text-transform → uppercase / lowercase
+iv) text-indent → first line space
+v) letter-spacing → space between letters
+vi) word-spacing → space between words
+vii) line-height → space between lines
+viii) text-decoration → underline / line-through

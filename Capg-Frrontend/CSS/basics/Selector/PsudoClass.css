@@ -1,0 +1,37 @@
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+#elementPara::after{
+    content: and we targeting the ;
+}
+#elementPara::before{
+    content: lets learn ;
+}
+#elementPara::first-letter{
+    text-transform: capitalize;
+    color: blue;
+}
+#elementPara::first-line{
+    background-color: violet;
+}
+
+#elementPara::selection{
+    background-color: yellow;
+    color: black;
+}
+
+ul li::marker{
+    color: chocolate;
+}
+
+a[target]{
+    background-color: lightblue;
+}
+
+div[title]{
+    background-color: lightgreen;
+    padding: 10px;
+}

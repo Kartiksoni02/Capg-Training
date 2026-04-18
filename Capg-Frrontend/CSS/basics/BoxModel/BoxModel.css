@@ -1,0 +1,50 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+/* short :   T R B L   */
+
+.padding-side {
+    border: 2px solid black;
+    height: 300px;
+    width: 300px;
+
+    padding-left: 30px;
+    padding-top: 50px;
+    padding-right: 10px;
+}
+
+.padding-4 {
+    border: 2px solid black;
+    height: 300px;
+    width: 300px;
+
+    padding: 10px 20px 30px 40px;    /* 10 for top & 20 for right & 30 for bottom & 40 for left */
+}
+
+.padding-3 {
+    border: 2px solid black;
+    height: 300px;
+    width: 300px;
+    
+    padding: 10px 20px 30px;    /* 10 for top and 20 for right & left and 30 for bottom */
+}
+
+.padding-2 {
+    border: 2px solid black;
+    height: 300px;
+    width: 300px;
+    
+    padding: 20px 40px    /* 20 for top & bottom  and  40 for left & right */
+}
+
+.padding-1 {
+    border: 2px solid black;
+    height: 300px;
+    width: 300px;
+    
+    padding: 40px;    /* 40 px for all sides top/bottom/left/right */
+}

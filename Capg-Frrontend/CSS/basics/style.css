@@ -1,0 +1,15 @@
+div p{
+    background-color: aqua;
+    color: navajowhite;
+    text-transform: capitalize;
+    text-align: center;
+    padding: 10px;
+}
+div h1{
+    background-color: sandybrown;
+    color: navajowhite;
+    text-transform: capitalize;
+    text-align: center;
+    padding: 10px;
+}
+

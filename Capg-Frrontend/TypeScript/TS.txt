@@ -1,0 +1,141 @@
+npm install -g typescript
+
+tsc app.ts
+___________________________________________________________
+
+if error , rn in terminal in vs code:
+Get-ExecutionPolicy
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+___________________________________________________________
+
+TSC: Type Script Compiler: converts TS into JS. It is in btw code and compiler.
+
+> features
+> how to use / compilation
+> installation : npm install -g typescript
+
+> function : parameter : type,
+optional prope
+function with return type
+
+> Time inference
+> type annotation
+
+> special data type in ts : any, unknown, void, never.
+
+> any : not secure, coz can use .toUpperCase with number without error
+> unknown : safer version of any
+> void : return undefined nothing other.
+> never : returns nothing, never terminate during execution.
+
+
+# Array in TS
+# tuple in TS
+
+> type alias
+> interface
+
+> Typescript class : property, method, constructor
+
+Q: How 'this' keyword will behave with normal function and arrow function in js ?
+sol: 'this' keyword refers to current object, in arrow function, it is undefined
+
+
+> public, private, protected
+> type guard : type narrowing.
+
+> generics
+
+> global and local installation
+
+> type assertion
+___________________________________________________________
+For project:
+run in integrated terminal in root project folder:
+1. npm init -y
+2. npm install typescript --save-dev
+3. npx tsc --init
+
+tsc
+node dist/app.js 
+___________________________________________________________
+ANGULAR : framework for creating enterprise level application.
+
+
+> Misko Hevery and Adam Abrons at Brat Tech LLC , google
+> current angular version : 21
+> Angular cli :
+> ng // for angular
+> angular js vs angular ts
+
+npm install -g @angular/cli
+ng --version
+ng v
+
+> Properties :
+1. Component based
+2. High community support
+3. Typescript based
+4. Security
+5. Binding data
+6. Server side rendering
+
+In angular root directory, open cmd :
+ng new First-Angular-project
+then, N
+
+________________________
+
+
+
+
+> Server side rendering : 
+Cons : heavy load on server, 
+Pro : SEO friendly, initial load time is less.
+
+> client side rendering : 
+cons : no SEO friendly, initial load time is more
+
+
+
+> dependencies : dev dependency & production dependency
+
+> package-lock.json : for version control so that each team member should have same version.
+> node-module : dev dependencies
+> editorconfig : for formatting.
+> .gitignore : files which we don't want to push on github , we mention inside them inside gitignore.
+> tsconfig.json : hold dependencies required for typescript.
+> tsconfig app.json : dependencies required for angular project.
+> tsconfig.spec.json : for testing
+> angular.json : project structure, environment setting, assests etc.
+
+> ng serve : for development
+After running 'ng serve'
+> esbuild/vite : these module bundler will be created.
+> then, main .ts bundle is created
+> dev serve : add all the link(CSS) & all the JS to the bundle.
+> then it will serve a local port 4200 to index.html whic is a SPA
+> then, main.ts search which is entry level file
+> it will search for bootstrap function.
+// import bootstrapfunction from @angular/platform-browser library.
+> bootstrapfunction("App", configuration)
+> bootstrap will search for root component.
+> App is root component : all component is inside in app and those onl will be rendered.
+? then all those component in the file will be rendered.
+
+*** ng serve > bundle > index.html > localhost:4200 > main.ts > bootstrapfunction > app component rendered
+
+> Component : reusable block : dividing into components like navbar
+> contains 4 files :- nav.ts, nav.html, nav.css, nav.config
+1. .ts file // mandatory  
+2. .html file // mandatory
+3. .css file // optional
+4. .config  file // optional
+
+> decorator : '@' : 
+
+
+
+
+
+

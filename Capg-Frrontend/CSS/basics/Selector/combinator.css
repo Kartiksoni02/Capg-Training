@@ -1,0 +1,15 @@
+div p{
+    color: red;    
+}
+
+div strong{
+    color: green;
+}
+
+#container>p>i{
+    color: blue;
+}
+
+#container p{
+    color: orange;
+}

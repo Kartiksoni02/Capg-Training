@@ -1,0 +1,65 @@
+<!-- on click on button value should get increased and 
+on click on another button another value should get decrease. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Counter</title>
+    <style>
+        button {
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Counter</h2>
+<h3 id="count">0</h3>
+
+<button id="increment" onclick="increase()">Increase</button>
+<button id="decrement" onclick="decrease()">Decrease</button>
+
+<script>
+    let countValue = document.getElementById("count");
+    let value = parseInt(countValue.textContent);
+
+    let increment = document.getElementById("increment");
+    let decrement = document.getElementById("decrement");
+
+    if(value == -5) {
+        decrement.disabled = true;
+    }
+    if(value == 15) {
+        increment.disabled = true;
+    }
+
+    function increase() {
+        value++;
+
+        decrement.disabled = false;
+
+        if(value == 15) {
+            increment.disabled = true;
+        }
+
+        countValue.textContent = value;
+    }
+
+    function decrease() {
+        value--;
+
+        increment.disabled = false;
+
+        if(value == -5) {
+            decrement.disabled = true;
+        }
+        
+        countValue.textContent = value;
+    }
+</script>
+
+</body>
+</html>
+

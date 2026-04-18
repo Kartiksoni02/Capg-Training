@@ -1,0 +1,29 @@
+/* p{
+    font-weight: lighter;
+    font-size: 3em;
+    font-style: oblique;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+} */
+
+/* 2. using @import rule in CSS file */
+/* @import url('https://fonts.googleapis.com/css2?family=BJ+Cree:wght@400;500;600;700&family=Saira+Stencil:ital,wght@0,100..900;1,100..900&display=swap'); */
+
+/* p{
+  font-family: "BJ Cree", serif;
+  font-weight: 700;
+  font-style: normal;
+} */
+
+
+/* 3. using downloaded font files in the project */
+@font-face {
+  font-family: my-custom-font-family;
+  src: url("../assests/BJ_Cree/BJCree-SemiBold.ttf");
+}
+
+
+p{
+  font-family: my-custom-font-family;
+  /* font-weight: 700;
+  font-style: normal; */
+}

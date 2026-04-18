@@ -1,0 +1,211 @@
+CSS : used to style and design HTML elements.
+> Invented by Håkon Wium Lie in 1994.
+
+# CSS Units :
+● In CSS, Units will specify the length of an element / size of content. 
+● Units were categorized into 2 Ways 
+● They are: 
+
+1) Absolute Units: These units are static, It will not depend on any other values.
+Absolute Units are: 
+1. mm 
+2. cm 
+3. in      1in = 16px
+4. px
+
+2) Relative Units: These units are dynamic, It will depend on some other values.
+Relative Units are: 
+1. vw → depends on viewport width 
+2. vh → depends on viewport height 
+3. % → depends on parent element 
+4. rem → depends on root element, 1 rem = 16 px
+5. em → depends on parent element 
+
+
+🔹 Types of CSS
+1. Inline CSS : Applied directly inside HTML tag
+2. Internal CSS : Written inside <style> tag in <head>
+3. External CSS (Best Practice ✅) : Separate .css file
+
+priority : inline > internal > external
+
+# CSS position Property : static, absolute, sticky, etc
+
+Blue : unvisited link
+Purple : visited link
+Red : click on link
+
+=> SELECTORS IN CSS :--
+Selectors are used to target HTML elements so that we can apply styles to them.
+
+1. SIMPLE SELECTOR → Used to select elements directly
+
+i) ID (#) → selects one unique element
+ii) Class (.) → selects multiple elements
+iii) Element → selects all elements of same tags
+iv) Grouping (,) → apply same style to multiple elements
+v) Universal (*) → selects all elements
+
+2. COMBINATOR SELECTOR → Define relationship between elements like parent-child or siblings.
+
+i) Descendant (div p) → inside element
+ii) Child (div > p) → direct child only
+iii) Adjacent (h1 + p) → next element
+iv) General sibling (h1 ~ p) → all siblings
+
+3. PSEUDO CLASS SELECTOR (:) → Work on state or position of an element.
+
+i) DYNAMIC : Change style when user interacts
+:hover → mouse over
+:active → when clicked
+:link → normal (unvisited) link
+:focus → When input field is selected
+
+ii) STRUCTURAL : Based on element position in HTML
+:first-child → Selects first element
+:last-child → Selects last element
+:nth-child(n) → Select specific position
+
+4. PSEUDO ELEMENT SELECTOR (::) → Work on parts of element
+
+::before → Adds content before element
+::after → Adds content after element
+::marker → Styles list bullets
+::selection → Styles selected text
+::first-line → Styles first line
+::first-word
+::first-letter → Styles first letter
+
+5. ATTRIBUTE SELECTOR → Select elements based on attributes
+Example: input[type="text"]
+
+
+2. TEXT PROPERTIES :
+i) color → text color
+ii) text-align → left / center / right
+iii) text-transform → uppercase / lowercase
+iv) text-indent → first line space
+v) letter-spacing → space between letters
+vi) word-spacing → space between words
+vii) line-height → space between lines
+viii) text-decoration → underline / line-through
+
+
+✅ What is Box Model?
+In CSS, every HTML element is treated like a box.
+
+This box has 4 parts: Margin → Border → Padding → Content
+
+🔹 4 Parts of Box Model :-
+1. Content :
+👉 The actual data inside element (text, image, etc.)
+Defines size of content area
+
+2. Padding :
+👉 Space between content and border
+
+3. Border :
+👉 Line around padding/content
+
+4. Margin :
+👉 Space outside the element
+
+> Shorthand Properties : T R B L
+
+Case 1: One Value = margin: 10px;
+👉 Applies to all sides
+Top = 10px  
+Right = 10px  
+Bottom = 10px  
+Left = 10px  
+
+Case 2: Two Values = margin: 10px 20px;
+👉 Meaning: Vertical | Horizontal
+Top & Bottom = 10px  
+Right & Left = 20px  
+
+Case 3: Three Values = margin: 10px 20px 30px;
+👉 Meaning:
+Top = 10px  
+Right & Left = 20px  
+Bottom = 30px  
+
+Case 4: Four Values margin: 10px 20px 30px 40px;
+👉 Meaning : for each T R B L
+
+
+
+# display properties : It defines how an element appears and behaves on the page
+
+1. display: none = Element is completely removed
+2. display: inline = Element stays in same line
+3. display: block = Element takes full width
+4. display: inline block = Mix of inline + block
+
+
+🔶 Flexbox (Flexible Box Layout) : 
+👉 Flexbox is used to arrange items in one direction
+➡ either row (horizontal) or column (vertical)
+✔ Best for: navbar, buttons, small layouts
+
+# Properties :-
+flex box		    flex item
+
+display item		flex bases
+justify item		flex grow
+justify content		flex shrink
+align item		    order
+flex direction
+flex wrap
+
+
+# flex-box (properties for parent section where we will use display:flex)
+1. display: flex = Activates flexbox
+2. justify-content: start , end , center , space-evenly, space-aroung, space-between = Aligns items horizontally (in row)
+3. justify-items :
+4. align-items: start , end , center = Aligns items vertically (in row)
+5. flex-direction: row, column, row-reverse, column-reverse
+6. flex-wrap: Controls wrapping
+7: align-content: (Works ONLY when flex-wrap is used) = Aligns multiple rows
+
+# flex item (properties for child section where flex properties are going to apply)
+1. flex-basis: Initial size of item
+2. flex-grow: How much item grows , Bigger value → more space taken
+3. flex-shrink: How much item shrinks
+4. order : Changes item order
+
+
+🔷 CSS Grid (Advanced Layout) :
+👉 Grid is used for 2D layouts (rows + columns)
+✔ Best for: full page layout
+
+
+# Grid properties (for 2 dimentional layout) : 
+display: Grid            = Activates grid system
+grid-template-columns    = Defines number and size of columns, fr ( make fraction)
+grid-template-rows       = Defines rows
+justify-content          = Aligns whole grid horizontally
+place-content            = Centers grid both horizontally & vertically
+
+# grid-item (child) :
+grid-column-start   = Starting column line
+grid-column-end     = end column line
+grid-row-start      = Starting row
+grid-row-end        = Ending row
+grid-column: 1/3    = Start at column 1, End at column 3
+grid-row: 1/3       = Start at row 1, End at row 3
+
+
+📱  Media Queries : @media
+👉 Used to make website responsive (mobile friendly)
+👉 Changes design based on screen size.
+
+# Properties :
+1. max-width     = Applies when screen is less than or equal to value
+2. min-width     = Applies when screen is greater than or equal to value
+3. max-height    = when screen height is less than or equal to a value
+4. min-height    = when screen height is greater than or equal to a value
+5. orientation   = Checks screen direction
+
+
+

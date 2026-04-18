@@ -1,0 +1,28 @@
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    display: inline;
+    /* cannot apply width and height to inline elements */
+    /* width: 100px;
+    height: 100px; */
+}
+
+span {
+    display: block;
+    /* now we can apply width and height to this block elements */
+    width: 100px;
+    height: 100px;
+    border: 2px solid red;
+}
+
+h2 {
+    display: inline-block;
+    /* now we can apply width and height to this inline-block elements */
+    width: 100px;
+    height: 100px;
+    border: 2px solid red;
+}

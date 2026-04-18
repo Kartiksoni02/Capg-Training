@@ -1,0 +1,199 @@
+To run index.js file in terminal use "node index" in terminal.
+
+👉 Programming Language = Used to build full applications/software
+
+👉 Scripting Language = Used to automate tasks or control other programs
+
+👉 Synchronous = Code runs line by line (one after another)
+
+👉 Asynchronous = Code runs without waiting (non-blocking)
+
+How JavaScript Handles Async :
+Callbacks
+Promises
+async/await
+___________________________________________________________________________________________________________
+JavaScript Invention: in 1995, brandon eich built MOCHA in 10 days then build LiveScript in sep 1995 then from there javaScript was built in oct 1995, and then it handover to ECMA (Europian Computer Manufacturing Association) organisation in 1996
+
+in 1997, ES1 js version came into the picture then ES2 ... ES6(standard version of js) in 2015, latest version is ECMAScript ES16 in 2025
+
+Invented by Brendan Eich in 10 days in 1995.
+
+JS:- high level object based programming language
+
+**Features of JS:-
+Scripting language
+Synchronous in nature
+Interpreted language
+Single threaded language
+dynamic language
+loosly/weakly typed language : automatic conversion of datatype
+object based
+client-side Scripting language
+
+**Properties of JavaScript :-
+1. Dynamic Typing : No need to declare data type
+2. Interpreted Language : Runs line by line
+3. Platform Independent : Works on any OS (Windows, Mac, Linux)
+
+JavaScript is used to make webpages interactive. It supports dynamic typing, event handling, and runs in the browser to perform actions like validation, animations, and DOM manipulation.
+
+
+**Advantages of JS:-
+high community support
+simple to understand(light weight)
+faster
+
+**Disadvantages of JS:-
+not secure
+XSS-attack
+
+
+RunTime Environment
+1. Browser RunTime Environment
+    :- ways to use js
+    1. inline js
+    2. internal js
+    3. external js
+2. Non Browser RunTime Environment
+    :- to use this, we need node js
+
+
+rendering engine vs javascript engine
+Key Differences
+Feature 	    Rendering Engine (Layout Engine)	                                JavaScript Engine
+Primary Goal	Transforms HTML and CSS into a visual representation on the screen.	Parses and executes JavaScript code to make the page interactive.
+Inputs	        HTML documents, CSS files, images, and XML.	                        JavaScript code (.js) and WebAssembly.
+Core Output	    The Document Object Model (DOM), Render Tree, and visual pixels.	Executed machine code or manipulation of the DOM via APIs.
+Independence	Tightly coupled with the browser; rarely used outside of one.	    Can run independently of a browser (e.g., Node.js).
+
+JavaScriptEngine :- 
+
+FLOW :- JS code > Parser(Tokenization) > AST > Interpreter ( byte code and hot code) > Profiler > JIT > optimized code
+
+JS Code: The source code is first broken down into smaller chunks called tokens (e.g., identifiers, operators) through a process called tokenization.
+
+Parser: The parser checks the tokens for syntax errors and organizes them into a tree structure.
+
+parser :- first the code will be converted in chunks and then parse the chunks into AST format (Abstract Syntax Tree) tree like structure
+then these chunks goes to interpreter then code is converted to bytecode (the code which is neither understandable by humans nor machine)
+and JIT(just in time) compiler is also there so after interpreter, the code will go to JIt which is having profiler
+
+AST (Abstract Syntax Tree): This is a hierarchical representation of the program's structure, allowing the engine to understand the logic before conversion.
+
+Interpreter: The interpreter (such as V8's Ignition) converts the AST into Bytecode, an intermediate low-level format.
+Bytecode: This code is executed line-by-line for a fast startup.
+Hot Code: Frequently called functions or resource-intensive segments are identified during this phase.
+HotCode:- the code which is repreating again and again like a loop.
+
+profiler:- gets chunks of code from compiler and it gives hot code to JIT compiler
+Profiler: While the interpreter runs, a profiler monitors the code in real-time, collecting data on data types and identifying "hot" code paths.
+
+JIT :- convert hot code into optimized code
+
+Optimized Code: The JIT compiler generates highly efficient machine code tailored to the specific CPU.
+
+
+> JS is Weakly typed programming language coz of  :
+let a=Number(40)
+let b=String("30")
+
+console.log(a+b); // 4030
+console.log(a-b); // 10
+
+
+# Hoisting: Utilizing the variable before the declaration and initialization.
+Temporal Dead Zone (TDZ) : time gap btw variable Utilization and variable declaration/initialization.
+
+> Rest parameter
+> Diff in var and let.
+> == vs ===
+
+Q: Why typeof(NaN) is number ?
+> type of array is object.
+> type of object is undefined.
+> type of object constructor is function.
+> type of null = object
+> type of constructor(string/array) = object.
+
+type of 10 = "number"
+type ( type of 10) = string
+
+0.1 + 0.2 == 0.3 : False
+0.1 + 0.2 === 0.3 : False
+
+0.5 + 0.2 == 0.7 : True
+0.5 + 0.2 === 0.7 : True
+
+var a;
+console.log(typeof a): // undefined
+
+if we dont return anything in function, then undefined will be returned.
+
+primitive and non primitive data type
+
+> Types of functions in js :-
+1. Named function
+2. Anonymous function
+3. Function with expression
+4. Nested function
+5. Callback function
+6. Higher order function
+7. Arrow function
+
+> Tiny function
+
+> short circuiting
+
+> explicit return, implicit
+
+> closure property
+
+while : entry controlled loop
+do while : exit controlled loop
+
+string interpolation in js
+
+1. String : A string is a primitive data type representing a sequence of characters used to store and manipulate text.
+            all methods in string.
+
+2. Array : An array is a special type of object used to store an ordered collection of values under a single variable name.
+            contains heterogeneous data ; static method and instance method ; 
+            to create array - constructor(uses new and ()) and literal way uses []
+            push, pop, shift, unshift, splice, spread operator,
+            all methods in array.
+
+> Destructuring: breaking a big structure like an array or object into smaller pieces (variables) easily.
+
+// string to array , array to string
+
+3. Object : non-primitive data type used to store collections of data and more complex entities as key-value pairs
+ex. const user = { name: "Alice", age: 25 };
+
+> ways to create object :
+1. Object Literal: The most common and simple way to define an object using curly braces {}.
+ex. const obj = { name: "John", age: 30 };
+
+2. Constructor Function: Reusable blueprints using regular functions and the new keyword.
+ex. const p = new Person("John");
+
+# Asynchronous JS
+Timimng function :- SetTimeOut and SetTimeInterval
+> clearTimeout() and clearInterval()
+
+> Promises are objects representing the eventual completion (or failure) of an asynchronous operation.
+> can handle the outcome of these operations using three primary handler methods: .then(), .catch(), and .finally().
+
+1) .then() : used to handle a fulfilled promise and access its successful result. 
+2) .catch() : used to handle a rejected promise and manage errors.
+3) .finally() : a function to be called when the promise is settled, regardless of whether it was fulfilled or rejected.
+
+> fetch
+
+> async
+> await
+
+> BOM 
+
+
+

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multi Step Form</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #eef2f7;
+}
+
+
+.container {
+  display: flex;
+  width: 800px;
+  margin: 60px auto;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 220px;
+  background: linear-gradient(to bottom, #1b0ada, #c11ba2);
+  color: white;
+  padding: 20px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+  font-size: 14px;
+}
+
+.step::before {
+  content: attr(data-step);
+}
+
+.step span {
+  font-size: 12px;
+  display: block;
+}
+
+.active {
+  font-weight: bold;
+}
+
+
+.form-section {
+  flex: 1;
+  padding: 30px;
+}
+
+.form-section h2 {
+  margin-bottom: 10px;
+}
+
+.form-section p {
+  color: gray;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Button */
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  float: right;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #162d6b;
+}
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="step active">1<span>YOUR INFO</span></div>
+    <div class="step">2<span>SELECT PLAN</span></div>
+    <div class="step">3<span>ADD-ONS</span></div>
+    <div class="step">4<span>SUMMARY</span></div>
+  </div>
+
+  <!-- Form Section -->
+  <div class="form-section">
+    <h2>Personal info</h2>
+    <p>Please provide your name, email address, and phone number.</p>
+
+    <label>Name</label>
+    <input type="text" placeholder="e.g. Kartik">
+
+    <label>Email Address</label>
+    <input type="email" placeholder="e.g. kkg@lorem.com">
+
+    <label>Phone Number</label>
+    <input type="text" placeholder="e.g. +1 234 567 890">
+
+    <button>Next Step</button>
+  </div>
+
+</div>
+
+</body>
+</html>
