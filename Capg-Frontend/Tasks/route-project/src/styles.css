@@ -1,0 +1,73 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'tailwindcss';
+
+nav>li{
+    @apply list-none;
+}
+
+.active{
+    @apply p-1 bg-blue-200 text-green-800 border rounded-2xl;
+}
+
+.homeMain {
+    @apply flex
+}
+
+.homeAside {
+    @apply h-120 w-50 bg-amber-300 flex flex-col justify-around p-3 text-center
+}
+
+.nestactive {
+    @apply bg-amber-500 text-red-700 border rounded-2xl
+}
+
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.form-box {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 24px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-box h3 {
+    margin: 0 0 8px 0;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.form-group input {
+    padding: 6px 8px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-box button {
+    padding: 8px;
+    cursor: pointer;
+    border: none;
+    background-color: #333;
+    color: white;
+    border-radius: 4px;
+}
+
+.msg {
+    margin: 4px 0 0 0;
+    color: green;
+    font-size: 13px;
+}
